@@ -2,9 +2,9 @@
 
 Result here : https://shayreichert.github.io/ip_address_tracker/
 
-![./image/desktop-preview.jpg](https://shayreichert.github.io/ip_address_tracker/)
+![./images/desktop-preview.jpg](https://shayreichert.github.io/ip_address_tracker/)
 
-![Design preview for the IP Address Tracker coding challenge](./image/desktop-preview.jpg)
+![Design preview for the IP Address Tracker coding challenge](./images/desktop-preview.jpg)
 
 ## Welcome! 👋
 

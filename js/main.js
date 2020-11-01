@@ -8,7 +8,9 @@ window.onload = goToUserIP;
 
 // Custom Marker Icon
 var greenIcon = L.icon({
-  iconUrl: "../images/icon-location.svg",
+  // iconUrl: "../images/icon-location.svg",
+  iconUrl:
+    "https://shayreichert.github.io/ip_address_tracker/images/icon-location.svg",
   iconSize: [42, 50],
 });
 
