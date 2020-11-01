@@ -1,4 +1,10 @@
-const api_key = "at_JePWenmcjHY6iwLrvmlN0iZtdg9Kc";
+const ipify_api_key = "at_JePWenmcjHY6iwLrvmlN0iZtdg9Kc";
+
+// Initial Page Load
+goToUserIP = () => {
+  document.querySelector(".button").click();
+};
+window.onload = goToUserIP;
 
 // Custom Marker Icon
 var greenIcon = L.icon({
@@ -6,7 +12,7 @@ var greenIcon = L.icon({
   iconSize: [42, 50],
 });
 
-// INITIAL MAP
+// Initial Map
 const mymap = L.map("mapid").setView([51.505, -0.09], 13);
 const marker = L.marker([51.5, -0.09], { icon: greenIcon }).addTo(mymap);
 L.tileLayer(
@@ -30,8 +36,8 @@ searchBar.addEventListener("submit", getLocation);
 async function getLocation(event) {
   event.preventDefault();
   const inputValue = document.querySelector(".search-input").value;
-  const fetchIpLocation = await fetch(
-    `https://geo.ipify.org/api/v1?apiKey=${api_key}&ipAddress=${inputValue}`
+  await fetch(
+    `https://geo.ipify.org/api/v1?apiKey=${ipify_api_key}&ipAddress=${inputValue}`
   )
     .then((data) => {
       if (data.status != 200) {
@@ -52,8 +58,8 @@ async function getLocation(event) {
 
 // Go to IP Location
 const setIPLocation = (infos) => {
-  const { ip, location, isp } = infos;
   // Display infos
+  const { ip, location, isp } = infos;
   const ipInsert = document.querySelector(".ip-insert");
   const cityInsert = document.querySelector(".city-insert");
   const postalCodeInsert = document.querySelector(".postalCode-insert");
