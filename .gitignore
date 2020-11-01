@@ -18,3 +18,4 @@ design
 style-guide.md
 .env*
 node_modules
+.sass-cache
