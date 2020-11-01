@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--  -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <header>
+        <h1>IP Address Tracker</h1>
+        <form class="search-bar">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="Search for any IP address or domain"
+          />
+          <button type="submit">
+            <img src="./images/icon-arrow.svg" alt="arrow" />
+          </button>
+        </form>
+      </header>
+
+      <div class="infos">
+        <div class="element infos-ip-address">
+          <h2>IP Address</h2>
+          <span class="ip-insert">192.212.174.101</span>
+        </div>
+        <div class="element location">
+          <h2>Location</h2>
+          <div>
+            <span class="city-insert">Brooklyn, NY</span>&nbsp;
+            <span class="postalCode-insert">10001</span>
+          </div>
+        </div>
+        <div class="element timezone">
+          <h2>Timezone</h2>
+          <span>UTC <span class="utc-insert">-05:00</span></span>
+        </div>
+        <div class="element isp">
+          <h2>ISP</h2>
+          <span class="isp-insert">SpaceX <br class="break" />Starlink</span>
+        </div>
+      </div>
+
+      <div id="mapid">
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >
+          | Coded by <a href="https://shayreichert.com/">Shay Reichert</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
