@@ -1,35 +1,34 @@
 const ipify_api_key = "at_JePWenmcjHY6iwLrvmlN0iZtdg9Kc";
+const mapbox_access_token =
+  "pk.eyJ1Ijoic2hheWt1cnR6IiwiYSI6ImNrZ3doMG1sNjAyYW4yeXJzZ3pmOGEycHAifQ.gyqXExQTpBPfipzRyn-QCw";
 
-// Initial Page Load
-goToUserIP = () => {
-  document.querySelector(".button").click();
-};
-window.onload = goToUserIP;
-
-// Custom Marker Icon
-var greenIcon = L.icon({
-  // iconUrl: "../images/icon-location.svg",
+// Initial Map
+const customIcon = L.icon({
   iconUrl:
     "https://shayreichert.github.io/ip_address_tracker/images/icon-location.svg",
   iconSize: [42, 50],
 });
-
-// Initial Map
 const mymap = L.map("mapid").setView([51.505, -0.09], 13);
-const marker = L.marker([51.5, -0.09], { icon: greenIcon }).addTo(mymap);
+const marker = L.marker([51.5, -0.09], { icon: customIcon }).addTo(mymap);
+const mapOptions = {
+  maxZoom: 18,
+  attribution:
+    'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  id: "mapbox/streets-v11",
+  tileSize: 512,
+  zoomOffset: -1,
+};
 L.tileLayer(
-  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hheWt1cnR6IiwiYSI6ImNrZ3doMG1sNjAyYW4yeXJzZ3pmOGEycHAifQ.gyqXExQTpBPfipzRyn-QCw",
-  {
-    maxZoom: 18,
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: "mapbox/streets-v11",
-    tileSize: 512,
-    zoomOffset: -1,
-  }
+  `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${mapbox_access_token}`,
+  mapOptions
 ).addTo(mymap);
+
+initialUserAddress = () => {
+  document.querySelector(".button").click();
+};
+window.onload = initialUserAddress;
 
 // IP search
 const searchBar = document.querySelector(".search-bar");
@@ -51,15 +50,14 @@ async function getLocation(event) {
       }
     })
     .then((data) => {
-      setIPLocation(data);
+      goToIPLocation(data);
     })
     .catch((err) => {
       console.log(err);
     });
 }
 
-// Go to IP Location
-const setIPLocation = (infos) => {
+const goToIPLocation = (infos) => {
   // Display infos
   const { ip, location, isp } = infos;
   const ipInsert = document.querySelector(".ip-insert");
